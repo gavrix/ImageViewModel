@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C7E41C01CAED17B00FF1780 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7E41BE1CAED17B00FF1780 /* ReactiveCocoa.framework */; };
+		3C7E41C11CAED17B00FF1780 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7E41BF1CAED17B00FF1780 /* Result.framework */; };
+		3C7E41C21CAED18900FF1780 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7E41BE1CAED17B00FF1780 /* ReactiveCocoa.framework */; };
+		3C7E41C31CAED18C00FF1780 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7E41BF1CAED17B00FF1780 /* Result.framework */; };
 		3C93D0CD1CA428310002C159 /* ImageViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C93D0CC1CA428310002C159 /* ImageViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C93D0D41CA428310002C159 /* ImageViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D0C91CA428310002C159 /* ImageViewModel.framework */; };
 		3C93D0D91CA428310002C159 /* ImageViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93D0D81CA428310002C159 /* ImageViewModelTests.swift */; };
 		3C93D0E41CA4284F0002C159 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93D0E31CA4284F0002C159 /* ImageViewModel.swift */; };
-		3C93D0E71CA428810002C159 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D0E51CA428810002C159 /* ReactiveCocoa.framework */; };
-		3C93D0E81CA428810002C159 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D0E61CA428810002C159 /* Result.framework */; };
-		3C93D1081CA498C10002C159 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D0E51CA428810002C159 /* ReactiveCocoa.framework */; };
-		3C93D1091CA498C70002C159 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D0E61CA428810002C159 /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C7E41BE1CAED17B00FF1780 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		3C7E41BF1CAED17B00FF1780 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		3C93D0C91CA428310002C159 /* ImageViewModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageViewModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C93D0CC1CA428310002C159 /* ImageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewModel.h; sourceTree = "<group>"; };
 		3C93D0CE1CA428310002C159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,8 +37,6 @@
 		3C93D0D81CA428310002C159 /* ImageViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModelTests.swift; sourceTree = "<group>"; };
 		3C93D0DA1CA428310002C159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C93D0E31CA4284F0002C159 /* ImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
-		3C93D0E51CA428810002C159 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
-		3C93D0E61CA428810002C159 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C93D0E71CA428810002C159 /* ReactiveCocoa.framework in Frameworks */,
-				3C93D0E81CA428810002C159 /* Result.framework in Frameworks */,
+				3C7E41C01CAED17B00FF1780 /* ReactiveCocoa.framework in Frameworks */,
+				3C7E41C11CAED17B00FF1780 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,9 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C93D1091CA498C70002C159 /* Result.framework in Frameworks */,
+				3C7E41C31CAED18C00FF1780 /* Result.framework in Frameworks */,
 				3C93D0D41CA428310002C159 /* ImageViewModel.framework in Frameworks */,
-				3C93D1081CA498C10002C159 /* ReactiveCocoa.framework in Frameworks */,
+				3C7E41C21CAED18900FF1780 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,10 +65,10 @@
 		3C93D0BF1CA428310002C159 = {
 			isa = PBXGroup;
 			children = (
+				3C7E41BE1CAED17B00FF1780 /* ReactiveCocoa.framework */,
+				3C7E41BF1CAED17B00FF1780 /* Result.framework */,
 				3C93D0CB1CA428310002C159 /* ImageViewModel */,
 				3C93D0D71CA428310002C159 /* ImageViewModelTests */,
-				3C93D0E51CA428810002C159 /* ReactiveCocoa.framework */,
-				3C93D0E61CA428810002C159 /* Result.framework */,
 				3C93D0CA1CA428310002C159 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C93D0DD1CA428310002C159 /* Build configuration list for PBXNativeTarget "ImageViewModel" */;
 			buildPhases = (
+				3C7E41C51CAEDDCA00FF1780 /* ShellScript */,
 				3C93D0C41CA428310002C159 /* Sources */,
 				3C93D0C51CA428310002C159 /* Frameworks */,
 				3C93D0C61CA428310002C159 /* Headers */,
@@ -212,14 +213,27 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/ReactiveCocoa.framework",
-				"$(SRCROOT)/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "carthage copy-frameworks";
+		};
+		3C7E41C51CAEDDCA00FF1780 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if ! [ -d \"Carthage/Build\" ]; then\n    carthage build --platform ios\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -351,6 +365,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ImageViewModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -373,6 +388,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ImageViewModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -389,6 +405,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ImageViewModelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -403,6 +420,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ImageViewModelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
