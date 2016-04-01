@@ -6,5 +6,6 @@ xcode_sdk: iphonesimulator9.2
 before_install:
   - brew update
   - brew install carthage
+  - cd ImageViewModel
   - carthage bootstrap --platform ios
 
