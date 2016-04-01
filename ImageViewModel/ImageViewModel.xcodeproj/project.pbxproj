@@ -233,7 +233,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if ! [ -d \"Carthage/Build\" ]; then\n    carthage build --platform ios\nfi\n";
+			shellScript = "if ! [ -d \"Carthage\" ]; then\n    carthage bootstrap --platform ios\nfi\n\n\nif ! [ -d \"Carthage/Build\" ]; then\n    carthage build --platform ios\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
