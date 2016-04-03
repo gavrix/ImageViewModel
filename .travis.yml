@@ -8,5 +8,5 @@ before_install:
   - brew install carthage
   - carthage version
 before_script:
-  - carthage bootstrap ImageViewModel/
+  - carthage bootstrap --project-directory ImageViewModel
 
