@@ -1,4 +1,8 @@
 # ImageViewModel
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+
 RAC-based µ-ViewModel for managing images represented as URLs. Simplifies routine tasks of laoding images from the nethwork, caching, resizing, post-processing. Written purely in swift.
 
 ## Usage
