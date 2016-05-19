@@ -12,7 +12,7 @@ import ReactiveCocoa
 import Result
 
 
-protocol ImageProvider {
+public protocol ImageProvider {
     
     func image(url url:NSURL, size:CGSize) -> SignalProducer<UIImage, NoError>
     func image(image: UIImage, size: CGSize) -> SignalProducer<UIImage, NoError>
@@ -43,7 +43,7 @@ public class ImageViewModel {
     public let resultImage: AnyProperty<UIImage?>
     public let imageTransitionSignal: Signal<Void, NoError>
     
-    init(imageProvider: ImageProvider, defaultImage: UIImage? = nil) {
+    public init(imageProvider: ImageProvider, defaultImage: UIImage? = nil) {
         
         let (imgTransitionSignal, sink) = Signal<Void, NoError>.pipe()
                 
