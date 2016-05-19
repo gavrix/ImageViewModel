@@ -4,5 +4,5 @@ xcode_project: ImageViewModel.xcodeproj
 xcode_scheme: ImageViewModel 
 xcode_sdk: iphonesimulator9.2
 before_script:
-  - carthage bootstrap --platform ios
+  - carthage bootstrap --platform ios --no-use-binaries
 
