@@ -119,7 +119,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C93D0DD1CA428310002C159 /* Build configuration list for PBXNativeTarget "ImageViewModel" */;
 			buildPhases = (
-				3C7E41C51CAEDDCA00FF1780 /* ShellScript */,
 				3C93D0C41CA428310002C159 /* Sources */,
 				3C93D0C51CA428310002C159 /* Frameworks */,
 				3C93D0C61CA428310002C159 /* Headers */,
@@ -221,19 +220,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "carthage copy-frameworks";
-		};
-		3C7E41C51CAEDDCA00FF1780 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if ! [ -d \"Carthage\" ]; then\n    carthage bootstrap --platform ios\nfi\n\n\nif ! [ -d \"Carthage/Build\" ]; then\n    carthage build --platform ios\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
