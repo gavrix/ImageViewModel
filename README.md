@@ -76,9 +76,16 @@ Checkout this repository, copy `ImageViewModel` folder into your project's 3rd p
 In your Cartfile add the following line:
 
 ```
-git "https://github.com/gavrix/ImageViewModel.git" "0.0.1"
+git "https://github.com/gavrix/ImageViewModel.git" "0.0.2"
 ```
 
+### Cocoapods
+
+`ImageViewModel` also available via cocoapods. Add following line in your podfile:
+
+```
+pod 'ImageViewModel', '0.0.2'
+```
 
 ## Example project.
 
