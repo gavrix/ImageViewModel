@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import ReactiveCocoa
+import ReactiveSwift
 import Result
 
 @testable import ImageViewModel
@@ -69,7 +69,7 @@ class ImageViewModelTests: XCTestCase {
         
         var resizedImageSizeRequested = CGSize.zero
         var downloadedImageSize = CGSize.zero
-        var downloadURLRequested = NSURL()
+        var downloadURLRequested = URL()
         
         let imageProvider = TestImageProvider(
             downloadFunc: {url,size in
@@ -91,13 +91,13 @@ class ImageViewModelTests: XCTestCase {
         XCTAssertEqual(resizedImageSizeRequested, imageSize, "ImageSize requested should be equal to value set in `imageViewSize`")
         resizedImageSizeRequested = .zero
         
-        let url = NSURL(string: "http://google.com/image.png")!
+        let url = URL(string: "http://google.com/image.png")!
         imageViewModel.image.value = .URL(url)
 
         XCTAssertEqual(downloadedImageSize, imageSize, "Should have requested downloaded image once")
         XCTAssertEqual(downloadURLRequested, url, "Should have requested downloaded image once")
         
-        let url2 = NSURL(string: "http://google.com/image.png")!
+        let url2 = URL(string: "http://google.com/image.png")!
         let imageSize2 = CGSize(width: 10, height: 10)
         
         imageViewModel.image.value = .URL(url2)
@@ -135,7 +135,7 @@ class ImageViewModelTests: XCTestCase {
         XCTAssertEqual(defaultResizeCount, 1, "Should have requested resized image once")
         defaultResizeCount = 0
 
-        imageViewModel.image.value = .URL(NSURL(string: "http://google.com/image.png")!)
+        imageViewModel.image.value = .URL(URL(string: "http://google.com/image.png")!)
         
         XCTAssertEqual(defaultResizeCount, 1, "Should have requested resized image once")
         defaultResizeCount = 0
@@ -146,7 +146,7 @@ class ImageViewModelTests: XCTestCase {
         XCTAssertEqual(downloadCount, 1, "Should have requested download image once")
         downloadCount = 0
         
-        imageViewModel.image.value = .URL(NSURL(string: "http://google.com/image2.png")!)
+        imageViewModel.image.value = .URL(URL(string: "http://google.com/image2.png")!)
         
         XCTAssertEqual(defaultResizeCount, 0, "Should NOT have requested resized image")
         defaultResizeCount = 0
@@ -181,7 +181,7 @@ class ImageViewModelTests: XCTestCase {
         XCTAssertEqual(transitionSignalRecevied, false, "Should not send transition for default image");
         transitionSignalRecevied = false
         
-        imageViewModel.image.value = .URL(NSURL(string: "http://google.com/image.png")!)
+        imageViewModel.image.value = .URL(URL(string: "http://google.com/image.png")!)
 
         downloadSink.sendNext(UIImage())
         downloadSink.sendCompleted()
@@ -189,7 +189,7 @@ class ImageViewModelTests: XCTestCase {
         XCTAssertEqual(transitionSignalRecevied, true, "Should send transition when downloaded image is delivered asynchronously");
         transitionSignalRecevied = false
 
-        imageViewModel.image.value = .URL(NSURL(string: "http://google.com/image2.png")!)
+        imageViewModel.image.value = .URL(URL(string: "http://google.com/image2.png")!)
 
         XCTAssertEqual(transitionSignalRecevied, false, "Should NOT send transition when downloaded image is delivered synchronously");
         transitionSignalRecevied = false
@@ -225,7 +225,7 @@ class ImageViewModelTests: XCTestCase {
 
         XCTAssertEqual(imageViewModel.resultImage.value, defaultResizedImage, "Resulting image should be the one provided by imageProvider");
 
-        imageViewModel.image.value = .URL(NSURL(string: "http://google.com/image.png")!)
+        imageViewModel.image.value = .URL(URL(string: "http://google.com/image.png")!)
         
         XCTAssertEqual(imageViewModel.resultImage.value, defaultResizedImage, "Resulting image should remain to be resized default before download delivers");
         
@@ -242,20 +242,20 @@ class ImageViewModelTests: XCTestCase {
 
 class TestImageProvider: ImageProvider {
 
-    var imageDownloadFunc: (NSURL, CGSize) -> SignalProducer<UIImage, NoError>;
+    var imageDownloadFunc: (URL, CGSize) -> SignalProducer<UIImage, NoError>;
     var imageResizeFunc: (UIImage, CGSize) -> SignalProducer<UIImage, NoError>;
     
-    init(downloadFunc: (NSURL, CGSize) -> SignalProducer<UIImage, NoError>,
+    init(downloadFunc: (URL, CGSize) -> SignalProducer<UIImage, NoError>,
         resizeFunc: (UIImage, CGSize) -> SignalProducer<UIImage, NoError>) {
             self.imageDownloadFunc = downloadFunc;
             self.imageResizeFunc = resizeFunc;
     }
 
-    func image(url url:NSURL, size:CGSize) -> SignalProducer<UIImage, NoError> {
+    func image(url:NSURL, size:CGSize) -> SignalProducer<UIImage, NoError> {
         return self.imageDownloadFunc(url, size)
     }
 
-    func image(image: UIImage, size: CGSize) -> SignalProducer<UIImage, NoError> {
+    func image(_ image: UIImage, size: CGSize) -> SignalProducer<UIImage, NoError> {
         return self.imageResizeFunc(image, size)
     }
 
