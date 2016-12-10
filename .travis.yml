@@ -6,4 +6,4 @@ rvm:
 before_install:
     - gem install xcpretty
 script:
-    - xcodebuild test -project ImageViewModel.xcodeproj -scheme ImageViewModel -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0'
+    - xcodebuild test -project ImageViewModel.xcodeproj -scheme ImageViewModel -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' | xcpretty -c 
