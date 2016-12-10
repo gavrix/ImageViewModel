@@ -11,6 +11,9 @@
 		3C93D0D41CA428310002C159 /* ImageViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D0C91CA428310002C159 /* ImageViewModel.framework */; };
 		3C93D0D91CA428310002C159 /* ImageViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93D0D81CA428310002C159 /* ImageViewModelTests.swift */; };
 		3C93D0E41CA4284F0002C159 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93D0E31CA4284F0002C159 /* ImageViewModel.swift */; };
+		7439B4931DFBC73100A9782D /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7439B4751DFBB75700A9782D /* ReactiveSwift.framework */; };
+		7439B4941DFBC73600A9782D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7439B45B1DFBB74D00A9782D /* Result.framework */; };
+		7439B4951DFBC75100A9782D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7439B45B1DFBB74D00A9782D /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7439B4941DFBC73600A9782D /* Result.framework in Frameworks */,
+				7439B4931DFBC73100A9782D /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7439B4951DFBC75100A9782D /* Result.framework in Frameworks */,
 				3C93D0D41CA428310002C159 /* ImageViewModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +288,6 @@
 				3C93D0CF1CA428310002C159 /* Sources */,
 				3C93D0D01CA428310002C159 /* Frameworks */,
 				3C93D0D11CA428310002C159 /* Resources */,
-				3C72582A1CA9698D00BE92E0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -466,24 +471,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3C72582A1CA9698D00BE92E0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C93D0C41CA428310002C159 /* Sources */ = {

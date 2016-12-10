@@ -44,11 +44,11 @@ open class ImageViewModel {
     open let imageTransitionSignal: Signal<Void, NoError>
     
     public init(imageProvider: ImageProvider, defaultImage: UIImage? = nil) {
-        
+		
         let (imgTransitionSignal, sink) = Signal<Void, NoError>.pipe()
-                
-        let defaultImageSignal = (defaultImage != nil) ? self.imageViewSize.producer
-            .skipRepeats()
+		let imaageSizeSignal = self.imageViewSize.producer.skipRepeats()
+		
+        let defaultImageSignal = (defaultImage != nil) ? imaageSizeSignal
             .flatMap(.latest) {
                 size -> SignalProducer<UIImage?, NoError> in
 
@@ -58,17 +58,23 @@ open class ImageViewModel {
                     return SignalProducer(value: nil)
                 }
             } : SignalProducer(value: nil)
-        
-        let actualImageSignals = SignalProducer.combineLatest(self.image.producer, self.imageViewSize.producer.skipRepeats())
-            .map {
-                (image, size) -> SignalProducer<UIImage?, NoError> in
-                if let image = image, size != .zero  {
-                    return image.resizedImage(imageProvider, size: size).map { .some($0) }
-                } else {
-                    return SignalProducer.never
-                }
-        }
-        
+		
+		let actualImageSignals = self.image.producer.map {
+			image -> SignalProducer<UIImage?, NoError> in
+			
+			if let image = image {
+				return imaageSizeSignal.flatMap(.latest) { size -> SignalProducer<UIImage?, NoError> in
+					if size != .zero  {
+						return image.resizedImage(imageProvider, size: size).map { .some($0) }
+					} else {
+						return .never
+					}
+				}
+			} else {
+				return .never
+			}
+		}
+		
         let compoundImageSignal = actualImageSignals.flatMap(.latest) {
             signal -> SignalProducer<UIImage?, NoError> in
             
