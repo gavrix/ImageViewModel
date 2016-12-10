@@ -2,5 +2,5 @@ language: objective-c
 osx_image: xcode8.1
 xcode_project: ImageViewModel.xcodeproj 
 xcode_scheme: ImageViewModel 
-xcode_sdk: iphonesimulator10.1
+xcode_sdk: iphonesimulator
 
