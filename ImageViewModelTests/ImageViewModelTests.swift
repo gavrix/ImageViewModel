@@ -255,6 +255,47 @@ class ImageViewModelTests: XCTestCase {
         XCTAssertEqual(imageViewModel.resultImage.value, downloadedImage, "Resulting image should be the one provided by imageProvider");
         
     }
+	
+	func testDeallocation() {
+		
+		let (downloadSignal, downloadSink) = Signal<UIImage, NoError>.pipe()
+		let downloadSignalProducer = SignalProducer<UIImage, NoError> {
+			observer, _ in
+			downloadSignal.observe(observer)
+		}
+		
+		let imageProvider = TestImageProvider(
+			downloadFunc: {_,size in
+				return downloadSignalProducer
+		},
+			resizeFunc: { image, size in
+				return SignalProducer(value: image)
+		})
+		
+		class Owning {
+			let imageViewModel: ImageViewModel
+			
+			init(imageProvider: ImageProvider) {
+				self.imageViewModel = ImageViewModel(imageProvider: imageProvider)
+				self.imageViewModel.imageViewSize.value = CGSize(width: 10, height: 10)
+				
+				self.imageViewModel.resultImage.producer.startWithValues { [weak self] _ in
+					XCTAssert((self != nil), "Should not fire after self deallocated")
+				}
+				self.imageViewModel.imageTransitionSignal.observeValues { [weak self] in
+					XCTAssert((self != nil), "Should not fire after self deallocated")
+				}
+			}
+		}
+		
+		func scoped() {
+			let owning = Owning(imageProvider: imageProvider)
+			owning.imageViewModel.image.value = .url(URL(string: "http://google.com")!)
+		}
+		
+		scoped()
+		downloadSink.send(value: UIImage())
+	}
     
 }
 

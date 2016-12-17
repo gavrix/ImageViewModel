@@ -42,8 +42,11 @@ open class ImageViewModel {
     
     open let resultImage: Property<UIImage?>
     open let imageTransitionSignal: Signal<Void, NoError>
-    
+	
+	private let token = Lifetime.Token()
     public init(imageProvider: ImageProvider, defaultImage: UIImage? = nil) {
+		
+		let myLifetime = Lifetime(self.token)
 		
         let (imgTransitionSignal, sink) = Signal<Void, NoError>.pipe()
 		let imaageSizeSignal = self.imageViewSize.producer.skipRepeats()
@@ -63,12 +66,15 @@ open class ImageViewModel {
 			image -> SignalProducer<UIImage?, NoError> in
 			
 			if let image = image {
-				return imaageSizeSignal.flatMap(.latest) { size -> SignalProducer<UIImage?, NoError> in
-					if size != .zero  {
-						return image.resizedImage(imageProvider, size: size).map { .some($0) }
-					} else {
-						return .never
-					}
+				return imaageSizeSignal
+					.flatMap(.latest) { size -> SignalProducer<UIImage?, NoError> in
+						if size != .zero  {
+							return image.resizedImage(imageProvider, size: size)
+								.take(during: myLifetime)
+								.map {.some($0)}
+						} else {
+							return .never
+						}
 				}
 			} else {
 				return .never
