@@ -1,2 +1,2 @@
-git "git@github.com:ReactiveCocoa/ReactiveSwift.git" "1.0.0-alpha.4"
+git "git@github.com:ReactiveCocoa/ReactiveSwift.git" ~> 2.1.0
 
